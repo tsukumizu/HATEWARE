@@ -2710,7 +2710,7 @@ do
 
 	local WatermarkInner = Library:Create('Frame', {
 		BackgroundColor3 = Library.MainColor;
-		BorderColor3 = Library.AccentColor;
+		BorderColor3 = Library.OutlineColor;
 		BorderMode = Enum.BorderMode.Inset;
 		Size = UDim2.new(1, 0, 1, 0);
 		ZIndex = 201;
@@ -2718,7 +2718,7 @@ do
 	});
 
 	Library:AddToRegistry(WatermarkInner, {
-		BorderColor3 = 'AccentColor';
+		BorderColor3 = 'OutlineColor';
 	});
 
 	local InnerFrame = Library:Create('Frame', {
@@ -2747,9 +2747,21 @@ do
 			});
 		end
 	});
+	
+	local Highlight = Library:Create('Frame', {
+		BackgroundColor3 = Library.AccentColor;
+		BorderSizePixel = 0;
+		Size = UDim2.new(1, 0, 0, 2);
+		ZIndex = 202;
+		Parent = WatermarkInner;
+	});
+	
+	Library:AddToRegistry(Highlight, {
+		BackgroundColor3 = 'AccentColor';
+	});
 
 	local WatermarkLabel = Library:CreateLabel({
-		Position = UDim2.new(0, 5, 0, 0);
+		Position = UDim2.new(0, 5, 0, 1);
 		Size = UDim2.new(1, -4, 1, 0);
 		TextSize = 14;
 		TextXAlignment = Enum.TextXAlignment.Left;
@@ -2988,7 +3000,7 @@ function Library:CreateWindow(...)
 
 	Library:AddToRegistry(Inner, {
 		BackgroundColor3 = 'MainColor';
-		BorderColor3 = 'AccentColor';
+		BorderColor3 = 'OutlineColor';
 	});
 
 	local WindowLabel = Library:CreateLabel({
@@ -3018,7 +3030,7 @@ function Library:CreateWindow(...)
 		BackgroundColor3 = Library.AccentColor;
 		BorderSizePixel = 0;
 		Size = UDim2.new(1, 0, 0, 2);
-		ZIndex = 17;
+		ZIndex = 1;
 		Parent = Inner;
 	});
 	
